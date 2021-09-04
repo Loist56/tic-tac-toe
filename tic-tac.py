@@ -26,11 +26,15 @@ for r in grid:
 
 #round1
 firstplay_x = input("First player enter a number between 0-2 for x coordinate:")
-if firstplay_x > 2:
+if int(firstplay_x) > 2:
     firstplay_x = input("incorrect please enter a number between 0-2:")
 firstplay_y = input("First player enter a number between 0-2 for y coordinate:")
-if firstplay_y > 2:
+if int(firstplay_y) > 2:
     firstplay_y = input("incorrect please enter a number between 0-2:")
 
-
+grid[int(firstplay_x)][int(firstplay_y)] = firstplay 
+for r in grid:
+    for c in r:
+        print(c,end = " ")
+    print()
 
