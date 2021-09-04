@@ -9,4 +9,13 @@ if n == 1:
 else:
     print("Player 2 you will go first")
 
+#building the grid
+grid = [[] for x in range(0,3)]
+for index in range(0,3):
+    grid[index] = [1 for y in range(0,3)]
+#display the grid
+for r in grid:
+    for c in r:
+        print(c,end = " ")
+    print()
 
