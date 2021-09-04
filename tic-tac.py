@@ -38,3 +38,29 @@ for r in grid:
         print(c,end = " ")
     print()
 
+#rest of the rounds
+
+i = 0
+winner = False
+if firstplay == "X":
+    counter = "O"
+else:
+    counter = "X"
+while i<8 or winner == False:
+    play_x = input("Enter a number between 0-2 for x:")
+    if int(play_x) > 2:
+        play_x = input("incorrect enter number between 0-2 only")
+    play_y = input("Enter a number between 0-2 for y:")
+    if int(play_y) > 2:
+        play_y = input("incorrect enter number between 0-2 only")
+
+    if grid[int(play_x)][int(play_y)] != 1:
+        print("already taken try again!")
+    else:
+        grid[int(play_x)][int(play_y)] = counter
+        i += 1
+    for r in grid:
+        for c in r:
+            print(c,end = " ")
+        print()
+        #need to check if they have won!!
