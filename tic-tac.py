@@ -18,7 +18,7 @@ else:
 #building the grid
 grid = [[] for x in range(0,3)]
 for index in range(0,3):
-    grid[index] = [1 for y in range(0,3)]
+    grid[index] = ["-" for y in range(0,3)]
 #display the grid
 for r in grid:
     for c in r:
@@ -38,7 +38,7 @@ while i < 9 and winner == False:
     if int(play_y) > 2:
         play_y = input("incorrect enter number between 0-2 only")
 
-    if grid[int(play_x)][int(play_y)] != 1:
+    if grid[int(play_x)][int(play_y)] != "-":
         print("already taken try again!")
     else:
         grid[int(play_x)][int(play_y)] = counter
@@ -62,7 +62,7 @@ while i < 9 and winner == False:
                 counter = secondplay
             else:
                 counter = firstplay
-                i = i+1
+            i = i+1
 
         
 
