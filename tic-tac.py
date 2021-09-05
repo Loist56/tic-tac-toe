@@ -27,27 +27,10 @@ for r in grid:
 
 #play game
 
-#round1
-firstplay_x = input("First player enter a number between 0-2 for x coordinate:")
-if int(firstplay_x) > 2:
-    firstplay_x = input("incorrect please enter a number between 0-2:")
-firstplay_y = input("First player enter a number between 0-2 for y coordinate:")
-if int(firstplay_y) > 2:
-    firstplay_y = input("incorrect please enter a number between 0-2:")
-
-grid[int(firstplay_x)][int(firstplay_y)] = firstplay 
-for r in grid:
-    for c in r:
-        print(c,end = " ")
-    print()
-
-#rest of the rounds
-
-i = 1
+i = 0
 winner = False
-counter = secondplay
-while i < 9 or winner == False:
-    print(i)
+counter = firstplay
+while i < 9 and winner == False:
     play_x = input("Enter a number between 0-2 for x:")
     if int(play_x) > 2:
         play_x = input("incorrect enter number between 0-2 only")
@@ -59,11 +42,15 @@ while i < 9 or winner == False:
         print("already taken try again!")
     else:
         grid[int(play_x)][int(play_y)] = counter
-        if counter == secondplay:
-            counter = firstplay
-        else:
+
+        if counter == firstplay:
             counter = secondplay
+        else:
+            counter = firstplay
         i = i+1
+
+
+
     for r in grid:
         for c in r:
             print(c,end = " ")
