@@ -43,11 +43,28 @@ while i < 9 and winner == False:
     else:
         grid[int(play_x)][int(play_y)] = counter
 
-        if counter == firstplay:
-            counter = secondplay
+        #check for winning
+
+        #check horizontal wins
+        if grid[int(play_x)][0] == grid[int(play_x)][1] == grid[int(play_x)][2]:
+            winner = True
+            print(counter + " wins the game!")
+        #check vertical
+        elif grid[0][int(play_y)] == grid[1][int(play_y)] == grid[2][int(play_y)]:
+            winner = True
+            print(counter + " wins the game!")
+        #check diagnol
+        elif grid[0][0] == counter == grid[1][1] == grid[2][2] or grid[0][2] == counter == grid[1][1] == grid[2][0]:
+            winner = True
+            print(counter + " wins the game!")
         else:
-            counter = firstplay
-        i = i+1
+            if counter == firstplay:
+                counter = secondplay
+            else:
+                counter = firstplay
+                i = i+1
+
+        
 
 
 
@@ -56,4 +73,4 @@ while i < 9 and winner == False:
             print(c,end = " ")
         print()
 print("game over!")
-        #need to check if they have won!!
+        
