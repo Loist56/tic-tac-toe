@@ -5,12 +5,15 @@ print("Hello welcome to tic tac toe, player 1 you will use X and player 2 you wi
 import random
 n = random.randint(1,2)
 firstplay = ""
+secondplay =""
 if n == 1:
     print("Player 1 you will go first")
     firstplay = "X"
+    secondplay = "O"
 else:
     print("Player 2 you will go first")
     firstplay ="O"
+    secondplay ="X"
 
 #building the grid
 grid = [[] for x in range(0,3)]
@@ -40,13 +43,11 @@ for r in grid:
 
 #rest of the rounds
 
-i = 0
+i = 1
 winner = False
-if firstplay == "X":
-    counter = "O"
-else:
-    counter = "X"
-while i<8 or winner == False:
+counter = secondplay
+while i < 9 or winner == False:
+    print(i)
     play_x = input("Enter a number between 0-2 for x:")
     if int(play_x) > 2:
         play_x = input("incorrect enter number between 0-2 only")
@@ -58,9 +59,14 @@ while i<8 or winner == False:
         print("already taken try again!")
     else:
         grid[int(play_x)][int(play_y)] = counter
-        i += 1
+        if counter == secondplay:
+            counter = firstplay
+        else:
+            counter = secondplay
+        i = i+1
     for r in grid:
         for c in r:
             print(c,end = " ")
         print()
+print("game over!")
         #need to check if they have won!!
